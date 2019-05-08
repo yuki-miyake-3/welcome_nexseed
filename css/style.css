@@ -1,3 +1,14 @@
+/*ヘッダー固定*/
+.fixed{
+    position: fixed;
+    width: 100%;
+    margin-top: -70px;
+    z-index: 100;
+/*    回り込み回避*/
+}
+#margin-for-fixed{
+    margin-top: 70px;
+}
 
 header {
     display: flex;
@@ -202,7 +213,21 @@ span{
     transition-duration: 500ms;
 }
 
+/*footer*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #233f51;
+    color:#fff;
+    font-size: 18px;
+    padding: 5px;
+    
+}
 
+footer .footer-right{
+    margin-right: 80px;
+}
 
 
 
