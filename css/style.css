@@ -234,7 +234,7 @@ footer .footer-right{
 /*小型PC用想定*/
 @media screen and (max-width: 1280px){
     .img-box{
-        justify-content: space-around;
+/*        justify-content: space-around;*/
     }
     .img-box li {
         margin-right: 30px;
@@ -291,6 +291,72 @@ footer .footer-right{
 }
 
 }
+
+/* スマホ用   */
+@media screen and (max-width: 480px){
+    body{
+        min-width:375px;
+    }
+/*headerの対応    */
+    header .icon{
+        margin-left: 20px;
+    }
+    .header-right{
+        display: none;
+    }
+    .icon .name{
+        display: none;
+    }
+/* welcome   */
+    .title{
+        font-size: 30px;
+    }
+    .guidline{
+        margin-top: 30px;
+        font-size: 24px;
+        font-weight: normal;
+    }
+    .btn-group{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .btn{
+        margin-left: 0;
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 20px;
+        height: 48px;
+        width: 40%;
+    }
+    .btn:first-child{
+        margin-top: 0;
+    }
+    
+    
+    
+    
+/*footer    */
+    footer{
+        display: flex;
+        justify-content: center;
+    }
+    footer .icon{
+        display: none;
+    }
+    
+    footer .footer-right{
+        margin-right: 0;
+    }
+   
+}
+    
+    
+    
+
+
+
 
 
 
