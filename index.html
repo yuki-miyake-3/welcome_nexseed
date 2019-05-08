@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+<!-- スタイルシートよりも先に入れる   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -61,55 +63,48 @@
 　</main>
 <!--curriculumここまで　-->
 
+ <!-- contact -->
+ <aside class="contact">
+  <h2 class="sub-title">contact us</h2>
+  <!-- form -->
+  <form action="">
+   <div class="form">
+    <!-- 左側のフォーム -->
+    <div class="form-left">
+     <fieldset>
+      <input class="name" type="text" placeholder="お名前">
+     </fieldset>
+     <fieldset>
+      <input class="email" type="email" placeholder="メールアドレス">
+     </fieldset>
+    </div>
+    <!-- 右側のフォーム -->
+    <fieldset>
+     <textarea class="inquiry" name="" placeholder="お問い合わせ内容"></textarea>
+    </fieldset>
+   </div>
+   <button>submit</button>
+  </form>
+ </aside>
+ <!-- contactここまで -->
 
-<!--contactここから-->
-　<aside class="contact">
-    <h2 class="sub-title">contact us</h2>
-    <form action="">
-        <div class="form">
-           <!-- 左側のフォーム -->
-           <div class="form-left">
-               <fieldset>
-                   <input type="text" class="name" placeholder="お名前">
-               </fieldset>
-               <fieldset>
-                   <input type="text" class="email" placeholder="メールアドレス">
-               </fieldset>
-           </div>
-           <!-- 右側のフォーム -->
-           <fieldset>
-               <textarea name="" class="inquiry" placeholder="お問い合わせ内容"></textarea>
-           </fieldset> 
-        </div>
-        <button>submit</button>
-　    </form>
-　    
-　</aside>
-　
-　
-　  <!-- contact -->
-  <aside class="contact">
-    <h2 class="sub-title">contact us</h2>
-    <!-- form -->
-    <form action="">
-      <div class="form">
-        <!-- 左側のフォーム -->
-        <div class="form-left">
-          <fieldset>
-            <input  class="name" type="text" placeholder="お名前">
-          </fieldset>
-          <fieldset>
-            <input  class="email" type="email" placeholder="メールアドレス">
-          </fieldset>
-        </div>
-        <!-- 右側のフォーム -->
-        <fieldset>
-          <textarea  class="inquiry" name="" placeholder="お問い合わせ内容"></textarea>
-        </fieldset>
-      </div>
-      <button>submit</button>
-    </form>
-  </aside>
+
+<!--footerここから　-->
+ <footer>
+<!--footer右側-->
+<div class="icon">
+<img src="img/seedkun.png" alt="">
+<span class="name"><strong>seed</strong>kun</span>
+<!--ヘッダーと同じcssが当たるようにかく-->
+
+</div>
+<p class="footer-right">Copyright(c)NexSeed inc.</p>
+
+
+
+
+ </footer>
+  
 
 
 

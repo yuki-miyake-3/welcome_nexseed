@@ -1,3 +1,14 @@
+/*ヘッダー固定*/
+.fixed{
+    position: fixed;
+    width: 100%;
+    margin-top: -70px;
+    z-index: 100;
+/*    回り込み回避*/
+}
+#margin-for-fixed{
+    margin-top: 70px;
+}
 
 header {
     display: flex;
@@ -201,6 +212,149 @@ span{
     color:#1dace0;
     transition-duration: 500ms;
 }
+
+/*footer*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #233f51;
+    color:#fff;
+    font-size: 18px;
+    padding: 5px;
+    
+}
+
+footer .footer-right{
+    margin-right: 80px;
+}
+
+/*レスポンシブ対応*/
+
+/*小型PC用想定*/
+@media screen and (max-width: 1280px){
+    .img-box{
+/*        justify-content: space-around;*/
+    }
+    .img-box li {
+        margin-right: 30px;
+    }
+    
+}
+
+@media screen and (max-width: 960px){
+/*curiculum    */
+    .img-box{
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    
+    
+
+
+.img-box li{
+    margin-top: 30px;
+    margin-right: 0;
+    } 
+
+/*curriculumここまで*/
+
+/*contact*/
+
+.contact{
+    height: 100%;
+    padding:40px 20px;
+}
+.contact .form{
+    flex-flow: column nowrap;
+    margin-bottom: 30px 0;
+}
+
+.form-left{
+    margin-right: 0;
+    margin-bottom:30px; 
+}
+
+.form .name ,
+.form .email{
+    width: 80%;   
+}
+
+.form .inquiry {
+    width:80%;
+}
+
+.contact button{
+    font-size: 20px;
+    padding:5px 40px;
+    box-sizing: border-box;
+}
+
+}
+
+/* スマホ用   */
+@media screen and (max-width: 480px){
+    body{
+        min-width:375px;
+    }
+/*headerの対応    */
+    header .icon{
+        margin-left: 20px;
+    }
+    .header-right{
+        display: none;
+    }
+    .icon .name{
+        display: none;
+    }
+/* welcome   */
+    .title{
+        font-size: 30px;
+    }
+    .guidline{
+        margin-top: 30px;
+        font-size: 24px;
+        font-weight: normal;
+    }
+    .btn-group{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .btn{
+        margin-left: 0;
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 20px;
+        height: 48px;
+        width: 40%;
+    }
+    .btn:first-child{
+        margin-top: 0;
+    }
+    
+    
+    
+    
+/*footer    */
+    footer{
+        display: flex;
+        justify-content: center;
+    }
+    footer .icon{
+        display: none;
+    }
+    
+    footer .footer-right{
+        margin-right: 0;
+    }
+   
+}
+    
+    
+    
+
 
 
 
