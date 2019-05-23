@@ -1,6 +1,4 @@
-
-//変数を使用したメディアクエリ
-//javascriptの連想配列（キー：何何）みたいなやつ
+//メディアクエリ
 $breakpoints:(
   s:"only screen and (max-width:480px)",
   m:"only screen and (max-width:960px)",
@@ -25,10 +23,11 @@ $maincolor: #1dace0;
 $subcolor:#eae51f;
 $white: #fff;
 
-@mixin flex($value,$i){
+@mixin flex($value,$i,$d:null){
   display: flex;
   justify-content: $value;
-  align-items: $i;  
+  align-items: $i; 
+  flex-direction: $d;
 }
 @mixin margin($top:null,$left:null,$right:null,$bottom:null){
   margin-top: $top ;
@@ -39,6 +38,10 @@ $white: #fff;
 @mixin BoxSet($bc,$ta:center){
   background-color:$bc;
   text-align: $ta;
+}
+@mixin box($w,$h){
+  width: $w;
+  height: $h;
 }
 
 //header
@@ -68,7 +71,7 @@ header{
   @include margin($left:80px);
   
     img {
-    height: 60px;
+  @include box(null,60px);
    }
    @include mediaq(s){
      @include margin($left:20px);
@@ -87,7 +90,7 @@ header{
 /*ヘッダー固定*/
 .fixed{
     position: fixed;
-    width: 100%;
+  @include box(100%,null);
   @include margin($top:-70px);
     z-index: 100;
 /*    回り込み回避*/
@@ -99,14 +102,13 @@ header{
 
 /*Welcomeここから*/
 .welcome{
-  @include flex(center,null);
-    flex-direction: column;
+  @include flex(center,null,column);
   @include BoxSet(null,center);
     background-image: url(../img/background1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+  @include box(null,100vh);
     color: $white;
   .title{
     font-size: 64px;
@@ -139,8 +141,7 @@ header{
       
     }
     .btn{
-    height:55px;
-    width: 170px;
+      @include box(170px,55px);
     @include margin($left:120px);
     cursor: pointer;
     color: $white;
@@ -154,8 +155,7 @@ header{
       @include margin($top:20px,$left:0px);
       font-weight: bold;
       font-size: 24px;
-      height: 48px;
-      width: 40%;
+      @include box(40%,48px);
       &:first-child{
         @include margin($top:0px); 
       } 
@@ -201,16 +201,14 @@ header{
     align-content: space-around;
   }
     li{
-      @include flex(null,null);
-    flex-direction: column;
+      @include flex(null,null,column);
       @include BoxSet(null,center);
     @include margin($right:60px);  
     &:last-child{
       @include margin($right:0px);
     }
     img{
-    height: 300px;
-    width: 300px;
+      @include box(300px,300px);
     }
     span{
     font-size: 24px;
@@ -222,21 +220,18 @@ header{
 }
 }
   }
-  
 //curriculumここまで
 
 /*contactここから*/
-
 .contact{
-  @include flex(center,null);
-    flex-direction: column;
+  @include flex(center,null,column);
   @include BoxSet(null,center);
-    height: 350px;
+  @include box(null,350px);
     @include margin($top:50px);
     padding-top: 50px;
     @include BoxSet(aliceblue,null);
   @include mediaq(m){
-    height: 100%;
+  @include box(null,100%);
     padding:40px 20px;
     
   }
@@ -250,12 +245,11 @@ header{
 }
       .email,
       .name{
-        height: 50px;
-        width: 400px;
+        @include box(400px,50px);
         box-sizing: border-box;
         font-size: 16px;
         @include mediaq(m){
-          width: 80%;
+        @include box(80%,null);
         }
 }
       @include mediaq(m){
@@ -264,12 +258,11 @@ header{
       
 }
     .inquiry {
-    height: 120px;
-    width: 400px;
+    @include box(400px,120px);
     box-sizing: border-box;
     font-size: 16px;
       @include mediaq(m){
-        width:80%;  
+      @include box(80%,null);  
       }
       
 }
@@ -281,31 +274,30 @@ header{
 
 }
   button{
-    @include BoxSet(#1dace0,null);
-    color: #fff;
-    border: 3px solid #1dace0;
+    @include BoxSet($maincolor,null);
+    color: $white;
+    border: 3px solid $maincolor;
     border-radius: 10px;
     font-size: 24px;
     padding: 15px 30px;
     box-sizing: border-box;
     &:hover{
       @include BoxSet($white,null);
-    color:#1dace0;
+    color:$maincolor;
     transition-duration: 500ms;
       @include mediaq(m){
         font-size: 20px;
         padding:5px 40px;
         box-sizing: border-box;
       }
-}
-    
+}   
 }   
 }
 /*footer*/
 footer{
   @include flex(space-between,center);
   @include BoxSet(#233f51,null);
-    color:#fff;
+    color:$white;
     font-size: 18px;
     padding: 5px;
   @include mediaq(s){
@@ -319,8 +311,7 @@ footer{
     @include mediaq(s){
       @include margin($right:0px);
     }
-}
-    
+}   
 }
 
 
