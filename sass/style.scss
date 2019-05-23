@@ -1,0 +1,356 @@
+
+//変数を使用したメディアクエリ
+//javascriptの連想配列（キー：何何）みたいなやつ
+$breakpoints:(
+  s:"only screen and (max-width:480px)",
+  m:"only screen and (max-width:960px)",
+  l:"only screen and (max-width:1280px)"
+  //これがmap
+);
+
+@mixin mediaq($breakpoint){
+  @if map-has-key($breakpoints, $breakpoint){
+    //もし breakpointsに、breakpointの値があれば（l,smなど）
+    @media #{map-get($breakpoints, $breakpoint)}{
+      //mapと呼ばれる　連想配列のこと
+      //map-get する　breakpointsから、breakpointの中身を持ってくる
+      @content;
+    }
+  }@else{
+    @error"$breakpointsに#{#breakpoint}というキーはありません";
+  }
+}
+
+$maincolor: #1dace0;
+$subcolor:#eae51f;
+$white: #fff;
+
+@mixin flex{
+  display: flex;
+}
+
+
+//header
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: $maincolor;
+    color: $white;
+    font-size: 18px;
+    padding: 5px 0;
+
+  .header-right{
+     @include flex;
+     align-items: center;
+     margin-right: 80px;
+     font-size: 15px;
+    
+    @include mediaq(s){
+     display: none;
+    }
+    li:nth-child(1){
+    margin-right: 20px;
+    }
+  }
+}
+.icon{
+    display: flex;      
+    align-items: center;
+    margin-left: 80px;
+  
+    img {
+    height: 60px;
+   }
+   @include mediaq(s){
+    margin-left: 20px;
+   }
+   .name {
+     strong{
+       color: $subcolor;
+    }
+     @include mediaq(s){
+       display: none;
+     }
+  }
+ }
+//header 終わり
+
+
+/*ヘッダー固定*/
+.fixed{
+    position: fixed;
+    width: 100%;
+    margin-top: -70px;
+    z-index: 100;
+/*    回り込み回避*/
+}
+#margin-for-fixed{
+    margin-top: 70px;
+}
+//ヘッダー固定終わり
+
+/*Welcomeここから*/
+.welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-image: url(../img/background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    color: $white;
+  .title{
+    font-size: 64px;
+    
+    @include mediaq(s){
+      font-size: 30px;  
+    }
+  }
+  .guidline{
+    margin-top: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    
+    @include mediaq(s){
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: normal;
+    }
+     
+    li:not(first-child) {
+    margin-top: 16px;
+    }
+  }
+  .btn-group{
+    margin-top: 60px;
+    
+    @include mediaq(s){
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      margin-top: 40px;
+      
+    }
+    .btn{
+    height:55px;
+    width: 170px;
+    margin-left: 120px;
+    cursor: pointer;
+    color: $white;
+    font-weight: bold;
+    font-size: 28px;
+    border-radius: 10px;
+      &:first-child{
+    margin-left: 0;
+    }
+    @include mediaq(s){
+      margin-left: 0;
+      font-weight: bold;
+      font-size: 24px;
+      margin-top: 20px;
+      height: 48px;
+      width: 40%;
+      &:first-child{
+       margin-top: 0; 
+      } 
+  }
+ }
+}
+}
+@mixin button($r,$g,$b,){
+  background-color: rgba($r,$g,$b,0.5);
+  border: 3px solid rgba($r,$g,$b,0.3);
+}
+.register{
+  @include button(29,172,224);
+  &:hover{
+    background-color: rgb(29,172,224);
+  }
+}
+.login{
+  @include button(236,227,35);
+  &:hover{
+    background-color: rgb(236,227,35);
+  }
+} 
+
+/*welcomeここまで*/
+
+/*curriculumここから*/
+.curriculum{
+  margin-top: 50px;
+  .sub-title{
+    text-align: center;
+    font-size: 36px;
+  }
+  .img-box{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  @include mediaq(l){
+    justify-content: space-around;
+  }
+    @include mediaq(m){
+    flex-wrap: wrap;
+    align-content: space-around;
+  }
+    li{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 60px;  
+    &:last-child{
+    margin-right: 0;
+    }
+    img{
+    height: 300px;
+    width: 300px;
+    }
+    span{
+    font-size: 24px;
+    margin-top: 20px;
+    }
+    @include mediaq(m){
+      margin-top: 30px;
+      margin-right: 0;
+      
+  }    
+}
+}
+  }
+  
+//curriculumここまで
+
+/*contactここから*/
+
+.contact{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 350px;
+    margin-top: 50px;
+    padding-top: 50px;
+    background-color: aliceblue;
+  @include mediaq(m){
+    height: 100%;
+    padding:40px 20px;
+    
+  }
+  .form{
+    display: flex;
+    margin:50px 0 40px;
+    justify-content: center;
+    .form-left{
+    margin-right: 50px;
+      .name{
+    margin-bottom: 20px;
+}
+      .email,
+      .name{
+        height: 50px;
+        width: 400px;
+        box-sizing: border-box;
+        font-size: 16px;
+        @include mediaq(m){
+          width: 80%;
+        }
+}
+      @include mediaq(m){
+        margin-right: 0;
+        margin-bottom:30px;
+        
+      }
+      
+}
+    .inquiry {
+    height: 120px;
+    width: 400px;
+    box-sizing: border-box;
+    font-size: 16px;
+      @include mediaq(m){
+        width:80%;  
+      }
+      
+}
+    @include mediaq(m){
+      flex-flow: column nowrap;
+      margin-bottom: 30px 0;
+      
+    }
+
+}
+  button{
+    background-color: #1dace0;
+    color: #fff;
+    border: 3px solid #1dace0;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    &:hover{
+    background-color: #fff;
+    color:#1dace0;
+    transition-duration: 500ms;
+      @include mediaq(m){
+        font-size: 20px;
+        padding:5px 40px;
+        box-sizing: border-box;
+      }
+}
+    
+}   
+}
+/*footer*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #233f51;
+    color:#fff;
+    font-size: 18px;
+    padding: 5px;
+  @include mediaq(s){
+    display: flex;
+    justify-content: center;
+    .icon{
+      display: none;
+    }
+  }
+  .footer-right{
+    margin-right: 80px;
+    @include mediaq(s){
+      margin-right: 0;
+      
+    }
+}
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
