@@ -67,8 +67,8 @@ header .header-right li:nth-child(1) {
 /*Welcomeここから*/
 .welcome {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   background-image: url(../img/background1.jpg);
   background-repeat: no-repeat;
@@ -113,8 +113,8 @@ header .header-right li:nth-child(1) {
 @media only screen and (max-width: 480px) {
   .welcome .btn-group {
     display: flex;
-    flex-flow: column nowrap;
     align-items: center;
+    flex-flow: column nowrap;
     margin-top: 40px;
   }
 }
@@ -131,20 +131,20 @@ header .header-right li:nth-child(1) {
 }
 
 .welcome .btn-group .btn:first-child {
-  margin-left: 0;
+  margin-left: 0px;
 }
 
 @media only screen and (max-width: 480px) {
   .welcome .btn-group .btn {
-    margin-left: 0;
+    margin-top: 20px;
+    margin-left: 0px;
     font-weight: bold;
     font-size: 24px;
-    margin-top: 20px;
     height: 48px;
     width: 40%;
   }
   .welcome .btn-group .btn:first-child {
-    margin-top: 0;
+    margin-top: 0px;
   }
 }
 
@@ -204,7 +204,7 @@ header .header-right li:nth-child(1) {
 }
 
 .curriculum .img-box li:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 .curriculum .img-box li img {
@@ -220,7 +220,7 @@ header .header-right li:nth-child(1) {
 @media only screen and (max-width: 960px) {
   .curriculum .img-box li {
     margin-top: 30px;
-    margin-right: 0;
+    margin-right: 0px;
   }
 }
 
@@ -245,8 +245,8 @@ header .header-right li:nth-child(1) {
 
 .contact .form {
   display: flex;
-  margin: 50px 0 40px;
   justify-content: center;
+  margin: 50px 0 40px;
 }
 
 .contact .form .form-left {
@@ -274,7 +274,7 @@ header .header-right li:nth-child(1) {
 
 @media only screen and (max-width: 960px) {
   .contact .form .form-left {
-    margin-right: 0;
+    margin-right: 0px;
     margin-bottom: 30px;
   }
 }
@@ -295,7 +295,7 @@ header .header-right li:nth-child(1) {
 @media only screen and (max-width: 960px) {
   .contact .form {
     flex-flow: column nowrap;
-    margin-bottom: 30px 0;
+    margin: 30px 0;
   }
 }
 
@@ -350,6 +350,6 @@ footer .footer-right {
 
 @media only screen and (max-width: 480px) {
   footer .footer-right {
-    margin-right: 0;
+    margin-right: 0px;
   }
 }
